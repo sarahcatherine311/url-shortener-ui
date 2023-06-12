@@ -12,12 +12,17 @@ class UrlForm extends Component {
 
   handleNameChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    this.setState({error: ""})
   }
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.postNewUrl(this.state.title, this.state.urlToShorten)
-    this.clearInputs();
+    if(this.state.title && this.state.urlToShorten) {
+      this.props.postNewUrl(this.state.title, this.state.urlToShorten)
+      this.clearInputs();
+    } else {
+      this.setState({error: "Please fill out all fields!"})
+    }
   }
 
   clearInputs = () => {
@@ -48,6 +53,7 @@ class UrlForm extends Component {
         <button className="submit-button" onClick={e => this.handleSubmit(e)}>
           Shorten Please!
         </button>
+        {this.state.error && <p className="error">{this.state.error}</p>}
       </form>
     )
   }
