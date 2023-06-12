@@ -39,6 +39,6 @@ describe('User Flows spec', () => {
     .get(".url-input").type("URL to shorten!").should("have.value", "URL to shorten!")
     .get(".submit-button").click()
     .get(".url").should("have.length", 2)
+    .get(".short-url").last().should("be.visible").contains("shortURL.com")
   })
-
 })
