@@ -12,7 +12,7 @@ const UrlContainer = props => {
         <h3>{url.title}</h3>
         <a className='short-url' href={url.short_url} target="blank">{url.short_url}</a>
         <p>{url.long_url}</p>
-        <button onClick={handleDelete}>Delete Url</button>
+        <button className="delete-button" onClick={handleDelete}>Delete Url</button>
       </div>
     )
   });

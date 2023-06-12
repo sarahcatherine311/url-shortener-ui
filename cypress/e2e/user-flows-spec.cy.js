@@ -1,4 +1,4 @@
-describe('empty spec', () => {
+describe('User Flows spec', () => {
   beforeEach(() => {
     cy.intercept("GET", "http://localhost:3001/api/v1/urls", {
       statusCode: 200,
