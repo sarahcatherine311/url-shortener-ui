@@ -29,4 +29,10 @@ const postUrl = (title, urlToShorten) => {
   })
 }
 
-export {getUrls, postUrl}
+const deleteUrl = (id) => {
+  return fetch(`http://localhost:3001/api/v1/urls/${id}`, {
+    method: 'DELETE'
+  })
+}
+
+export {getUrls, postUrl, deleteUrl}
