@@ -1,6 +1,12 @@
 const getUrls = () => {
   return fetch('http://localhost:3001/api/v1/urls')
-      .then(response => response.json())
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error fetching URLs');
+    }
+  });
 }
 
 const postUrl = (title, urlToShorten) => {
@@ -14,7 +20,13 @@ const postUrl = (title, urlToShorten) => {
       'Content-Type': 'application/json'
     }
   })
-  .then(response => response.json())
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error posting URL');
+    }
+  })
 }
 
 export {getUrls, postUrl}
