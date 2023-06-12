@@ -14,6 +14,7 @@ const postUrl = (title, urlToShorten) => {
       'Content-Type': 'application/json'
     }
   })
+  .then(response => response.json())
 }
 
-export default {getUrls, postUrl}
+export {getUrls, postUrl}
